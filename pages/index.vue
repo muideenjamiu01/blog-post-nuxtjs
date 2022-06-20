@@ -1,37 +1,22 @@
 <template>
   <div class="home-page">
     <section class="intro">
-      <h1>Get the latest tech news</h1>
+      <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview id="1"
-	    thumbnail="https://video.cgtn.com/news/2021-01-16/Tech-It-Out-Chinese-tech-make-splashes-at-first-ever-virtual-CES-X6yZBqdwI0/video/10ed211d209541b5aec5cdf5129fea9b/10ed211d209541b5aec5cdf5129fea9b.jpg"
-		title="hello post1"
-		previewText="this is my first post" 
-	   />
-      <PostPreview id="2"
-	    thumbnail="https://video.cgtn.com/news/2021-01-16/Tech-It-Out-Chinese-tech-make-splashes-at-first-ever-virtual-CES-X6yZBqdwI0/video/10ed211d209541b5aec5cdf5129fea9b/10ed211d209541b5aec5cdf5129fea9b.jpg"
-		title="hello post1"
-		previewText="this is my first post" 
-	   />
-      <PostPreview id="3"
-	    thumbnail="https://video.cgtn.com/news/2021-01-16/Tech-It-Out-Chinese-tech-make-splashes-at-first-ever-virtual-CES-X6yZBqdwI0/video/10ed211d209541b5aec5cdf5129fea9b/10ed211d209541b5aec5cdf5129fea9b.jpg"
-		title="hello post1"
-		previewText="this is my first post" 
-	   />
-     
-    </section> 
+    <PostList />
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/Posts/PostPreview";
+import PostList from '@/components/Posts/PostList'
+
 export default {
   components: {
-    PostPreview,
-  },
-};
+    PostList
+  }
+}
 </script>
+
 
 <style scoped>
 .intro {
@@ -39,9 +24,8 @@ export default {
   position: relative;
   padding: 30px;
   box-sizing: border-box;
-  /* background-image: url('~assets/images/main-page-background.jpg'); */
+  background-image: url('~assets/images/main-page-background.jpg');
   background-position: center;
-
   background-size: cover;
 }
 
@@ -73,10 +57,5 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 </style>

@@ -1,19 +1,17 @@
 <template>
-  <nuxt-link :to="'/posts/' + id" class="post-preview">
+  <nuxt-link :to="postLink" class="post-preview">
     <article>
       <div
         class="post-thumbnail"
-        :style="
-          {backgroundImage: 'url(' + thumbnail +')'}
-        "
-      ></div>
+        :style="{backgroundImage: 'url(' + thumbnail + ')'}"></div>
       <div class="post-content">
-        <h1>{{title}}</h1>
-        <p>{{PreviewText}}</p>
+        <h1>{{ title }}</h1>
+        <p>{{ previewText }}</p>
       </div>
     </article>
-  </nuxt-link> 
+  </nuxt-link>
 </template>
+
 <script>
 export default {
   name: 'PostPreview',
@@ -22,22 +20,32 @@ export default {
       type: String,
       required: true
     },
+    isAdmin: {
+      type: Boolean,
+      required: true
+    },
     title: {
       type: String,
-      required:true
+      required: true
     },
     previewText: {
       type: String,
-      required:true
-
+      required: true
     },
     thumbnail: {
       type: String,
-      required:true
+      required: true
+    }
+  },
+  computed: {
+    postLink() {
+      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
     }
   }
 }
 </script>
+
+
 <style scoped>
 .post-preview {
   border: 1px solid #ccc;
@@ -45,6 +53,19 @@ export default {
   background-color: white;
   width: 90%;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 850px) {
+  .post-preview {
+    width: 400px;
+    margin: 10px;
+  }
+}
+
 .post-thumbnail {
   width: 100%;
   height: 200px;
@@ -60,11 +81,5 @@ export default {
 a:hover .post-content,
 a:active .post-content {
   background-color: #ccc;
-}
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
 }
 </style>
